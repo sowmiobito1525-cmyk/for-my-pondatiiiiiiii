@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Pondatii 💖</title>
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+opacity:0;
+transition:1s;
+}
+section.active{opacity:1;}
+.hidden{display:none;}
+
+button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff4b7d;
+font-weight:bold;
+cursor:pointer;
+}
+
+.gift{
+width:130px;
+height:130px;
+background:white;
+color:#ff4b7d;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:25px;
+margin:10px;
+cursor:pointer;
+font-weight:bold;
+transition:0.4s;
+}
+.gift:hover{transform:scale(1.1);}
+
+img{
+max-width:80%;
+border-radius:15px;
+margin:15px;
+}
+
+#letter{
+max-width:800px;
+text-align:left;
+overflow-y:auto;
+height:60vh;
+background:rgba(0,0,0,0.4);
+padding:20px;
+border-radius:20px;
+}
+
+.heart{
+position:fixed;
+color:white;
+animation:float 6s linear infinite;
+}
+@keyframes float{
+0%{transform:translateY(100vh) scale(0);}
+100%{transform:translateY(-10vh) scale(1);}
+}
+
+.firework{
+position:fixed;
+width:10px;
+height:10px;
+background:white;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+@keyframes explode{
+0%{transform:scale(1);}
+100%{transform:scale(10);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<section id="entry" class="active">
+<h2>Enter Time 🕒</h2>
+<input type="password" id="timeInput" placeholder="Enter Time">
+<br><br>
+<button onclick="checkTime()">Enter</button>
+</section>
+
+<section id="first">
+<h2>For My Pondatii 🎁</h2>
+<div class="gift" onclick="showDudu()">Open</div>
+<img id="dudu" class="hidden" src="dudu.gif">
+<br>
+<button onclick="nextSection('photos')">Next</button>
+</section>
+
+<section id="photos">
+<h2>Gift 1 - 4 💝</h2>
+<div onclick="showPhoto('photo1.jpg')" class="gift">Gift 1</div>
+<div onclick="showPhoto('photo2.jpg')" class="gift">Gift 2</div>
+<div onclick="showPhoto('photo3.jpg')" class="gift">Gift 3</div>
+<div onclick="showPhoto('photo4.jpg')" class="gift">Gift 4</div>
+<img id="photoDisplay" class="hidden">
+<br>
+<button onclick="nextSection('songBig')">Next</button>
+<audio id="bgm1" src="neeparthavizhigal.mp3" loop></audio>
+</section>
+
+<section id="songBig">
+<h2>Big Surprise 🎁</h2>
+<div class="gift" onclick="nextSection('songOptions')">Open Big Gift</div>
+</section>
+
+<section id="songOptions">
+<h2>Choose Your Song 🎶</h2>
+<div class="gift" onclick="playSong('jilla.mp3')">Jilla</div>
+<div class="gift" onclick="playSong('manguiyele.mp3')">Manguiyele</div>
+<div class="gift" onclick="playSong('usurepoguthey.mp3')">Usure Poguthey</div>
+<div class="gift" onclick="playSong('adiyeazhage.mp3')">Adiye Azhage</div>
+<br>
+<button onclick="nextSection('monkeySec')">Next</button>
+<audio id="songPlayer"></audio>
+</section>
+
+<section id="monkeySec">
+<h2>Special Delivery 🐒</h2>
+<img src="monkey.gif" onclick="nextSection('letterSec')" style="cursor:pointer;">
+</section>
+
+<section id="letterSec">
+<h2>Open Letter 💌</h2>
+<div id="letter"></div>
+<h2>Love You Dii Pondatii 💖</h2>
+</section>
+
+<audio id="bgm2" src="neeparthavizhigal.mp3" loop></audio>
+
+<script>
+
+const letterText = `nethu panna mari mattum eppavum pannatha dii pondatii athu oru mari romba hurt aaguthu... 
+
+nethu panna mari mattum eppavum pannatha dii pondatii athu oru mari romba hurt aaguthu correct tha naanu apditha ellathuku panniruke so apa naanu athu face pannutha ana ennala antha pain la handle panna mudiyathu dii naala 3 movie climax pathutu 10 naal alugura aalu dii apdi patta enna nee vittu tu pona en nelama enna aagu🥺 entha pacha pullaya unna vitta yaru pathupa sollu 😩.. Naa unna vittu poga matenu apdi patta nenapu varathu athe mari neeum apdi panna kudathu seriya🫳 aprm nee enaku egg puff vangi thare nu solliruka maranthuratha🥺... Love uuuuuuuuuuuuuuuuuu dii pondatii 🫂❤️‍🩹entha naa unaku ummmmmmmmmmmaaaaaa thare vachuka 😚😚😚😚😚😚😚😚😚😚😚....
+
+Crctu tha nalaiku last group photo eduka vara solliruaga unaku evlo feel aagunu therium ena nee sonna mari entha college la evlo memories iruku ana eppa ellame midiya poguthu kandipa unga gang bonding mudiyathu 🙌 oru sentence varum la classroom yo labour room nu antha line unga friendship ku tha crcta iruku ena neega avlo closea irupiga 💎...
+
+Edho antha last day clg mudunchu porapa ellathuku feel pannuviga athula edho oru 1% aavathu enakagavu feel pannuve oru thuli aavathu kanner varum nu nenaikure..
+
+Enaku edho eppatha ella start aana mari iruku clg la practice aarambachuthuku aprm 1 week workout ku aprm ellaru avaga avaga game ponga nu sonna po geetha ka kaliyamma un teama kutitu po nu sonnapa.. Antha paalam room la ella vilayandu mam ta matti ellame 3 year nu thitu vangurapa naanu renu vum matnathu...
+
+Naa ellathulaum perfect ta irunthu en gang pannathu naa ellartaum thitu vangunapa nee mudha kunda enna sonnapa unta pesurapa aluga vanthu vartha stuck aanathu... Naa iruka nala mattum tha evaga la ungala onnu sollama irukaga nu sonnathu...
+
+Kho kho la un flashback ketu un friends ta thitu vangunathu... Apa match la thothutu punishment ta ungala enga team ma thukitu poga sonnapa kalees akka nee enna thukunu un mela yeri okanthathu...
+
+Serupadi game la venumbe unna target panni aduchathu... Kambam Match ku porapa avaga pannathuku naanu senthu thitu vaangunathu... Nee pesama ponathu...
+
+Aprm football ground la unna venumne back la ball vachu aduchathu... Athuku ennaum merlin naum thorathi balla aduchathu...
+
+Amutham cafe la en egg puff ku nee pay pannathu... Canteen ku kutitu poi ice ellathukum vangi kuduthathu... Ground la enna kuptu thaniya w shape la ball adika sollikudathathu...
+
+Stadium la samathanam pannathu... Chennai match... Starting stage la phone la pesunathu... Aprm close aanuthu... Saraku aduchutu call pannathu... Silapadi byepass la tractor ta kenjunathu... Step la kenjunathu...
+
+Karaikudi matchu... Evaga tha antha kaleeswariya evalta thalliye irukanu nu start aagi sollu dii pondatii nu pesura varaikum ellam edho eppa nadantha mari iruku 😌...
+
+Nenachu pakurapave face la smile varuthu ana enna edha la edhuku mela nenachu mattum tha paka mudium...
+
+Feel pannatha thangoo life la aduthu aduthu stage ku kandipa poi tha aaganum apditha edhuku aprm oru periya commite ment la kaal vaika pora...
+
+Unaku nu oru vela, family, athula neraya struggles face pannuva oru time la life mudunchu pona mari irukum enna panrathu nu theriyama irupe antha time la oru call pannu kandipa enga irunthalu varuve...
+
+Nee solluve athu varaikum naa unaku neyabagam irupana nu... Unna epdi di pondatii en life la maranthu pove en valakaila iruka aalagiya nanaivugala nee oru periya chapter book mari...
+
+All the best for your life.. Edhukagavum un confidence mattum vitratha ena oru says iruku ulla uyire pora aalavuku bayam irunthalu kannu la oru thili bayatha kuda katakudathu nu...
+
+So edhu vanthalum pathukala unakh nu oru attitude iruku atha mathikatha nee neeya iru...
+
+Ennoda aachirvadham unaku eppavum ondu 🙌😁🫂
+
+</p)`;
+
+function typeWriter(){
+let i=0;
+let speed=25;
+function typing(){
+if(i<letterText.length){
+document.getElementById("letter").innerHTML+=letterText.charAt(i);
+i++;
+setTimeout(typing,speed);
+}
+}
+typing();
+}
+
+function checkTime(){
+if(document.getElementById("timeInput").value==="143"){
+nextSection('first');
+}else{
+alert("Wrong Time 💔");
+}
+}
+
+function nextSection(id){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+
+if(id==="photos"){
+document.getElementById("bgm1").play();
+}
+if(id==="letterSec"){
+document.getElementById("bgm2").play();
+typeWriter();
+fireworks();
+}
+}
+
+function showDudu(){
+document.getElementById("dudu").classList.remove("hidden");
+}
+
+function showPhoto(src){
+let img=document.getElementById("photoDisplay");
+img.src=src;
+img.classList.remove("hidden");
+}
+
+function playSong(src){
+let player=document.getElementById("songPlayer");
+player.src=src;
+player.play();
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.style.left=Math.random()*100+"vw";
+heart.innerHTML="💖";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,800);
+
+function fireworks(){
+for(let i=0;i<10;i++){
+let fw=document.createElement("div");
+fw.classList.add("firework");
+fw.style.left=Math.random()*100+"vw";
+fw.style.top=Math.random()*100+"vh";
+document.body.appendChild(fw);
+setTimeout(()=>fw.remove(),1000);
+}
+}
+
+</script>
+
+</body>
+</html>
